@@ -1,11 +1,16 @@
-@extends('layouts.app')
+@extends('app')
 
 @section('content')
+
+<body class="bg-ls2">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+        <div class="text-center">
+                    <img src="http://os7.techaffinity.us/district10/public/images/logo-login-page.png">
+                </div>
+            <div class="card" style="height: 20em; border-radius: 1em;">
+              
 
                 <div class="card-body">
                     @if (session('status'))
@@ -18,10 +23,11 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                        <div class="form-group row mb-0">
+                        </div>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            <div>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus style="margin-top: 5em; margin-bottom: 3em; height: 3.5em;" placeholder="E-mail Address">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -38,10 +44,15 @@
                                 </button>
                             </div>
                         </div>
+                        <div style="color: #0000FF;"> <strong><a href="{{url('login')}}">Login</a> </strong>
+                             
+                          
+                                </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+</body>
 @endsection

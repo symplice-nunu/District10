@@ -1,21 +1,25 @@
-@extends('layouts.app')
 
+@extends('app')
+<link rel="stylesheet" href="/css/auth.css">
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
+<body class="bg-ls">
+<main class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+            <div class="text-center">
+                    <img src="http://os7.techaffinity.us/district10/public/images/logo-login-page.png">
+                </div>
+                <div class="card" style="width: 50em; margin-left: -12em;">
+                    
+                    <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        <table>
+                            <tr>
+                                <td>
+                                    
+                            <div class="">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror cd-kk" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name" style="margin-bottom: 2em;">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -23,13 +27,14 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                            
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>
+                           
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                            <div >
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror cd-kk" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="E-mail Address" style="width: 23.5em; margin-bottom: 2em;">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -37,13 +42,14 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                            
+                            </td>
+                            </tr>
+                            <tr>
+                                <td>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                            <div class="form-group mb-2">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror cd-kk" name="password" required autocomplete="new-password" placeholder="Password" style="margin-bottom: 2em;">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -51,27 +57,50 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>
+                            <div class="form-group mb-2">
+                            <input id="password-confirm" type="password" class="form-control cd-kk" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password" style="margin-bottom: 2em;">
+                                <span class="text-danger"></span>
                             </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
+                            
+                            </td>
+                            </tr>
+                            <tr>
+                                <td>
+                            
+                        <div class="form-group mb-2">
+                                <div class="form-group" style="margin-bottom: 2em;">
+                              <div class="g-recaptcha" data-sitekey="6Lce3kAcAAAAAGvaArCJqWmkdKemtknxViDaVIKB"></div>
+                                </div>
+                             </div>
+                            </td>
+                            </tr>
+                            <tr>
+                                <td>
+                            <div class="d-grid mx-auto">
+                                <button type="submit" class="btn btn-primary btn-block" style="margin-bottom: 2em;">Submit</button>
                             </div>
-                        </div>
-                    </form>
+                            <div style="color: #0000FF;"> <strong><a href="{{url('login')}}">Login</a>
+                             
+                          
+                                </div>
+                            </div>
+                            </td>
+                            </tr>
+                            </table>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+</main>
 </div>
+
+
+
+
+
 @endsection
